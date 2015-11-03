@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :questions
+
 	validates :email, presence: true, uniqueness: true,
     format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/ }
   validates :username, presence: true

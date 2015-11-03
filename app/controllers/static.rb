@@ -1,5 +1,8 @@
+helpers SessionHelper
+
 get '/' do
-  @user = User.find(session[:user_id]) if session[:user_id]
+  @user = current_user
+  @questions = Question.all.order(created_at: :desc)
   erb :"static/index"
 end
 

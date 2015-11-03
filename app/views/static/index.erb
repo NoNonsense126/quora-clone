@@ -3,5 +3,14 @@
   <a href="/signup">Sign Up!</a>
   <a href="/login">Log In!</a>
 <% else %>
-  <h1>Hello <%= @user.username %> </h1>
+  <h3>Hello <%= @user.username %> </h3>
+<% end %>
+
+<a href="/questions/new">Create a new question</a>
+
+<h2>Latest Questions!</h2>
+<% @questions.each_with_index do |q, index| %>
+  <a href="/questions/<%= q.id %>">
+    <p><%= "#{index + 1}. #{q.body}" %></p>
+  </a>
 <% end %>
