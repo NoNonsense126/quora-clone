@@ -1,2 +1,7 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<% if session[:user_id].nil? %>
+  <h1>Welcome! Please sign up or login</h1>
+  <a href="/signup">Sign Up!</a>
+  <a href="/login">Log In!</a>
+<% else %>
+  <h1>Hello <%= @user.username %> </h1>
+<% end %>
